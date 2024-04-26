@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: order
+  labels:
+    app: order
+spec:
+  type: ClusterIP
+  selector:
+    app: order
+  ports:
+    - name: tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+        version: v1
+    spec:
+      containers:
+      - name: order
+        image: order
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

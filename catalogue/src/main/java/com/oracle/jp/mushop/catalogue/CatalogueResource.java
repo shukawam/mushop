@@ -9,7 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.eclipse.microprofile.openapi.annotations.tags.Tags;
 
 import com.oracle.jp.mushop.catalogue.data.Product;
-import com.oracle.jp.mushop.catalogue.data.SizeProducts;
+import com.oracle.jp.mushop.catalogue.data.SizeProduct;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -40,7 +40,7 @@ public class CatalogueResource {
     @GET
     @Path("/size")
     @Operation(operationId = "getTotalNumberOfProducts", summary = "Get the number of products", description = "Returns the total number of products in the catalogue")
-    @APIResponse(responseCode = "200", description = "successful operation", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = SizeProducts.class)))
+    @APIResponse(responseCode = "200", description = "successful operation", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = SizeProduct.class)))
     @Tags(value = @Tag(name = "Catalogue"))
     public Response getTotalNumberOfProducts() {
         return Response.ok().entity(catalogService.getTotalNumberOfProducts()).type(MediaType.APPLICATION_JSON).build();

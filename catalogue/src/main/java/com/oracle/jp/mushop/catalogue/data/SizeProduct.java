@@ -4,7 +4,12 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public class SizeProducts {
+/**
+ * Response object for SizeProduct.
+ * 
+ * @author shukawam
+ */
+public class SizeProduct {
 
     @NotNull
     @Pattern(regexp = "^[0-9]\\d*$")

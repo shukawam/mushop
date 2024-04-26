@@ -4,7 +4,12 @@ import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
 
-public class Categories {
+/**
+ * Response object for Category.
+ * 
+ * @author shukawam
+ */
+public class Category {
 
     @NotNull
     private List<String> categories;

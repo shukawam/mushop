@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import com.oracle.jp.mushop.catalogue.data.Product;
-import com.oracle.jp.mushop.catalogue.data.SizeProducts;
+import com.oracle.jp.mushop.catalogue.data.SizeProduct;
 import com.oracle.jp.mushop.catalogue.entity.Categories;
 import com.oracle.jp.mushop.catalogue.entity.Products;
 import com.oracle.jp.mushop.catalogue.exception.CatalogueNotFoundException;
@@ -30,12 +30,12 @@ public class CatalogueService {
         }).toList();
     }
 
-    public SizeProducts getTotalNumberOfProducts() {
+    public SizeProduct getTotalNumberOfProducts() {
         var result = entityManager.createNamedQuery("getTotalNumberOfProducts", Long.class);
         if (result == null) {
             throw new CatalogueNotFoundException("Something went wrong.");
         }
-        var sizeProducts = new SizeProducts();
+        var sizeProducts = new SizeProduct();
         sizeProducts.setSize(result.getSingleResult());
         return sizeProducts;
     }

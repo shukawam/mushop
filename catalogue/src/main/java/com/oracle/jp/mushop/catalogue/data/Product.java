@@ -6,6 +6,11 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
+/**
+ * Response object for Product.
+ * 
+ * @author shukawam
+ */
 public class Product {
 
     @NotNull

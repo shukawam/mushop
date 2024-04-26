@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 
 /**
@@ -19,10 +21,15 @@ import jakarta.persistence.Table;
 @Entity(name = "Categories")
 @Table(name = "CATEGORIES")
 @Access(AccessType.FIELD)
+@NamedQueries({
+        @NamedQuery(name = "getAllCategories", query = "SELECT c FROM Categories c")
+})
 public class Categories {
+
     @Id
     @Column(name = "CATEGORY_ID")
     private Integer categoryId;
+
     @Column(name = "NAME", length = 30)
     private String name;
 

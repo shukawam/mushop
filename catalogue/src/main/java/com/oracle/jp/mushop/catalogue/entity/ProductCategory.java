@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 /**
  * Relational table for PRODUCT and CATEGORY
- * 
+ *
  * @author shukawam
  */
 @Entity(name = "ProductCategory")
@@ -25,7 +25,7 @@ public class ProductCategory {
 
     @Column(name = "SKU")
     private String sku;
-    
+
     @Column(name = "CATEGORY_ID")
     private String categoryId;
 

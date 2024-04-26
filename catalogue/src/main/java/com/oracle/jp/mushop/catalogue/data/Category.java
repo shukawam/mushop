@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 /**
  * Response object for Category.
- * 
+ *
  * @author shukawam
  */
 public class Category {

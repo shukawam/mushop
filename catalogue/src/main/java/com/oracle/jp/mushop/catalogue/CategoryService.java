@@ -20,9 +20,7 @@ public class CategoryService {
             throw new CatalogueNotFoundException("Categories is not found.");
         }
         var category = new Category();
-        category.setCategories(
-            results.map(Categories::getName).toList()
-        );
+        category.setCategories(results.map(Categories::getName).toList());
         return category;
     }
 }

@@ -17,17 +17,15 @@ import jakarta.persistence.Table;
 
 /**
  * Products entity.
- * 
+ *
  * @author shukawam
  */
 @Entity(name = "Products")
 @Table(name = "PRODUCTS")
 @Access(AccessType.FIELD)
-@NamedQueries({
-        @NamedQuery(name = "getAllProducts", query = "SELECT p FROM Products p"),
+@NamedQueries({ @NamedQuery(name = "getAllProducts", query = "SELECT p FROM Products p"),
         @NamedQuery(name = "getProductById", query = "SELECT p FROM Products p WHERE p.sku = :sku"),
-        @NamedQuery(name = "getTotalNumberOfProducts", query = "SELECT COUNT(*) FROM Products p")
-})
+        @NamedQuery(name = "getTotalNumberOfProducts", query = "SELECT COUNT(*) FROM Products p") })
 public class Products {
     @Id
     @Column(name = "SKU", length = 20)

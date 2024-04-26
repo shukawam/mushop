@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Pattern;
 
 /**
  * Response object for SizeProduct.
- * 
+ *
  * @author shukawam
  */
 public class SizeProduct {

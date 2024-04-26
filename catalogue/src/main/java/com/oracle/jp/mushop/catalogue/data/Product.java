@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Pattern;
 
 /**
  * Response object for Product.
- * 
+ *
  * @author shukawam
  */
 public class Product {

@@ -15,15 +15,13 @@ import jakarta.persistence.Table;
 
 /**
  * Categories entity.
- * 
+ *
  * @author shukawam
  */
 @Entity(name = "Categories")
 @Table(name = "CATEGORIES")
 @Access(AccessType.FIELD)
-@NamedQueries({
-        @NamedQuery(name = "getAllCategories", query = "SELECT c FROM Categories c")
-})
+@NamedQueries({ @NamedQuery(name = "getAllCategories", query = "SELECT c FROM Categories c") })
 public class Categories {
 
     @Id

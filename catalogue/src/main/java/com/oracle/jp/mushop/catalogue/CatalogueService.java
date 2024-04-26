@@ -61,9 +61,7 @@ public class CatalogueService {
         product.setQty(p.getQty());
         product.setPrice(p.getPrice());
         product.setImageUrl(
-                Stream.of(p.getImageUrl1(), p.getImageUrl2())
-                        .filter(url -> url != null && !url.isEmpty())
-                        .toList());
+                Stream.of(p.getImageUrl1(), p.getImageUrl2()).filter(url -> url != null && !url.isEmpty()).toList());
         product.setCategory(p.getCategories().stream().map(Categories::getName).toList());
         return product;
     }

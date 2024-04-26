@@ -2,7 +2,7 @@ package com.oracle.jp.mushop.catalogue.exception;
 
 /**
  * Wrapped Exception for Catalogue Service.
- * 
+ *
  * @author shukawam
  */
 public class CatalogueNotFoundException extends RuntimeException {

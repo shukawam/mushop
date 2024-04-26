@@ -52,8 +52,7 @@ public class CatalogueResource {
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "successful operation", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Product.class))),
             @APIResponse(responseCode = "400", description = "Invalid ID supplied", content = @Content(mediaType = MediaType.APPLICATION_JSON)),
-            @APIResponse(responseCode = "404", description = "Product not found", content = @Content(mediaType = MediaType.APPLICATION_JSON))
-    })
+            @APIResponse(responseCode = "404", description = "Product not found", content = @Content(mediaType = MediaType.APPLICATION_JSON)) })
     @Tags(value = @Tag(name = "Catalogue"))
     public Response getProduct(@PathParam("id") String id) {
         return Response.ok().entity(catalogService.getProductById(id)).type(MediaType.APPLICATION_JSON).build();

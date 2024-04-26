@@ -31,7 +31,7 @@ public class CatalogueResource {
     @GET
     @Operation(operationId = "listProducts", summary = "ist All Products", description = "Returns all products on the catalogue with details")
     @APIResponse(responseCode = "200", description = "successful operation", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = Product.class)))
-    @Tags(value = @Tag(name = "Catalog"))
+    @Tags(value = @Tag(name = "Catalogue"))
     @Produces(MediaType.APPLICATION_JSON)
     public Response listAllProduct() {
         return Response.ok().entity(catalogService.listAllProductCategory()).type(MediaType.APPLICATION_JSON).build();
@@ -55,20 +55,8 @@ public class CatalogueResource {
             @APIResponse(responseCode = "404", description = "Product not found", content = @Content(mediaType = MediaType.APPLICATION_JSON))
     })
     @Tags(value = @Tag(name = "Catalogue"))
-    public Response getProduct(@PathParam("id") Integer id) {
-        return null;
+    public Response getProduct(@PathParam("id") String id) {
+        return Response.ok().entity(catalogService.getProductById(id)).type(MediaType.APPLICATION_JSON).build();
     }
 
-    // @GET
-    // @Path("/categories")
-    // @Operation(operationId = "listProdgetCategoriesucts", summary = "Get
-    // categories", description = "Returns the categories on the catalogue")
-    // @APIResponse(responseCode = "200", description = "successful operation",
-    // content = @Content(mediaType = MediaType.APPLICATION_JSON, schema =
-    // @Schema(implementation = Categories.class)))
-    // @Tags(value = @Tag(name = "Catalog"))
-    // @Produces(MediaType.APPLICATION_JSON)
-    // public Response getCategories() {
-    // return null;
-    // }
 }

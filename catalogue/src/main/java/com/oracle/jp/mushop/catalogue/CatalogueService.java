@@ -25,21 +25,7 @@ public class CatalogueService {
             throw new CatalogueNotFoundException("Product is not found.");
         }
         return results.map(result -> {
-            var product = new Product();
-            product.setId(result.getSku());
-            product.setBrand(result.getBrand());
-            product.setTitle(result.getTitle());
-            product.setDescription(result.getDescription());
-            product.setWeight(result.getWeight());
-            product.setProductSize(result.getProductSize());
-            product.setColors(result.getColors());
-            product.setQty(result.getQty());
-            product.setPrice(result.getPrice());
-            product.setImageUrl(
-                    Stream.of(result.getImageUrl1(), result.getImageUrl2())
-                            .filter(url -> url != null && !url.isEmpty())
-                            .toList());
-            product.setCategory(result.getCategories().stream().map(Categories::getName).toList());
+            var product = copy(result);
             return product;
         }).toList();
     }
@@ -52,5 +38,33 @@ public class CatalogueService {
         var sizeProducts = new SizeProducts();
         sizeProducts.setSize(result.getSingleResult());
         return sizeProducts;
+    }
+
+    public Product getProductById(String id) {
+        var result = entityManager.createNamedQuery("getProductById", Products.class).setParameter("sku", id);
+        if (result == null) {
+            throw new CatalogueNotFoundException(String.format("Product: %s is not found.", id));
+        }
+        var product = copy(result.getSingleResult());
+        return product;
+    }
+
+    private Product copy(Products p) {
+        var product = new Product();
+        product.setId(p.getSku());
+        product.setBrand(p.getBrand());
+        product.setTitle(p.getTitle());
+        product.setDescription(p.getDescription());
+        product.setWeight(p.getWeight());
+        product.setProductSize(p.getProductSize());
+        product.setColors(p.getColors());
+        product.setQty(p.getQty());
+        product.setPrice(p.getPrice());
+        product.setImageUrl(
+                Stream.of(p.getImageUrl1(), p.getImageUrl2())
+                        .filter(url -> url != null && !url.isEmpty())
+                        .toList());
+        product.setCategory(p.getCategories().stream().map(Categories::getName).toList());
+        return product;
     }
 }

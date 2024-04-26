@@ -25,6 +25,7 @@ import jakarta.persistence.Table;
 @Access(AccessType.FIELD)
 @NamedQueries({
         @NamedQuery(name = "getAllProducts", query = "SELECT p FROM Products p"),
+        @NamedQuery(name = "getProductById", query = "SELECT p FROM Products p WHERE p.sku = :sku"),
         @NamedQuery(name = "getTotalNumberOfProducts", query = "SELECT COUNT(*) FROM Products p")
 })
 public class Products {

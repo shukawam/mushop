@@ -22,7 +22,9 @@ jobs:
           distribution: "temurin"
           cache: maven
       - name: Format check
+        working-directory: catalogue
         run: |
+
           mvn formatter:validate
       - name: Test with Maven
         run: |

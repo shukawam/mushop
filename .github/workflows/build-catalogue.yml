@@ -27,4 +27,5 @@ jobs:
           mvn formatter:validate
       - name: Test with Maven
         run: |
+          cd catalogue
           mvn test
